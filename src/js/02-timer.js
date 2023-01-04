@@ -13,6 +13,7 @@ const secondsValue = document.querySelector('span[data-seconds]');
 start.setAttribute("disabled", "disabled");
 
 let someDate = null;
+let intervalId = null;
 
 const options = {
   enableTime: true,
@@ -36,18 +37,15 @@ const options = {
 flatpickr(input, options);
 
 start.addEventListener("click", startTimer);
-let intervalId = null;
 
 function startTimer() {
-  const startDate = someDate.getTime();
-  console.log(startDate);
+  const startDate = someDate.getTime();  
   intervalId = setInterval(() => {
     const currentDate = Date.now();
     const deltaTime = startDate - currentDate;   
-    const timeComponents = convertMs(deltaTime);
-    console.log(timeComponents);
+    const timeComponents = convertMs(deltaTime);    
     updateTimerValue(timeComponents);
-     if (deltaTime <= 1000) {
+    if (deltaTime <= 1000) {
         clearInterval(intervalId);
   }
   }, 1000);
@@ -65,7 +63,6 @@ function updateTimerValue({ days, hours, minutes, seconds }) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
-
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -85,6 +82,8 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
+
 
 
 
