@@ -1,12 +1,13 @@
+import Notiflix from 'notiflix';
 
 const button = document.querySelector('button');
 const firstDelay = document.querySelector('input[name="delay"]');
 const stepDelay = document.querySelector('input[name="step"]');
 const amount = document.querySelector('input[name="amount"]');
-import Notiflix from 'notiflix';
 
 
 button.addEventListener('click', onSubmit);
+
 function onSubmit(event) {
   event.preventDefault();
   const inputFirstDelay = Number(firstDelay.value);
@@ -42,32 +43,5 @@ function createPromise(position, delay) {
   });
 }
 
-// for (let i = 0; i < position; i += 1) {
-//   createPromise(2, 1500)
-//   .then(({ position, delay }) => {
-//     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
-//   })
-//   .catch(({ position, delay }) => {
-//     console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-//   });
-// };
 
-// let delay = null;
-// let step = null;
-// let position = null;
 
-// amountValue.addEventListener('input', inputAmount);
-// function inputAmount(event) {
-//    position = event.target.value;
-// }
-
-// stepValue.addEventListener('input', inputStep);
-// function inputStep(event) {
-//    step = event.target.value;
-// }
-
-// delayValue.addEventListener('input', inputDelay);
-// function inputDelay(event) {
-//   console.log(position);
-//    delay = event.target.value;
-// }
