@@ -20,15 +20,15 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-        console.log(selectedDates[0]);
-      if (selectedDates[0].getTime() < Date.now()) {          
+  onClose([selectedDates]) {
+        console.log(selectedDates);
+      if (selectedDates.getTime() < Date.now()) {          
           Notiflix.Notify.failure('Please choose a date in the future');
           start.setAttribute("disabled", "disabled");
           return;
       }
       else { 
-        someDate = selectedDates[0];
+        someDate = selectedDates;
         start.removeAttribute("disabled"); 
       }
   },
